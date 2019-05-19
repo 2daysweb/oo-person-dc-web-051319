@@ -72,7 +72,7 @@ def get_paid(salary)
 return 'all about the benjamins'
 end 
 
-
+def start_conversation(interlocutor, topic)
 
 end
 
