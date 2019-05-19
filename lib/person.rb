@@ -73,6 +73,13 @@ return 'all about the benjamins'
 end 
 
 def start_conversation(person, topic)
+  if topic == "politics"
+    return "blah blah partisan blah lobbyist"
+    self.happiness=(@happiness-=2)
+    person.happiness=(person.happiness-=2)
+    elsif topic == "weather"
+    self.happiness=(@happiness-=1)
+    person.happiness=(person.happiness+=1)
 
 end
 
