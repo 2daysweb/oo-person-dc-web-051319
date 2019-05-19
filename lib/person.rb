@@ -81,6 +81,7 @@ def start_conversation(person, topic)
     self.happiness=(@happiness+=1)
     person.happiness=(person.happiness+=1)
     return "blah blah sun blah rain"
+  else
     return "blah blah blah blah blah"
   else
     return ""
