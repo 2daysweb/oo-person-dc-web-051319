@@ -1,64 +1,76 @@
+require 'pry'
 class Person 
 
-attr_reader :name 
+attr_reader :name, :happiness, :hygiene
+attr_accessor :bank_account 
 
 
 def initialize(name)
 
 @name = name 
-@balance = 25 
+@bank_account = 25 
 @happiness = 8 
 @hygiene = 8 
 end 
 
+def happiness=(new_happiness)
+  if new_happiness > 10 
+     @happiness = 10 
+  elsif new_happiness < 0
+     @happiness = 0
+  else 
+    @happiness = new_happiness
+  end
+end 
+
+def hygiene=(new_hygiene)
+  if new_hygiene> 10 
+     @hygiene = 10 
+  elsif new_hygiene < 0 
+        @hygiene = 0
+  else 
+     @hygiene = new_hygiene
+end
+end
+
 def clean?
-	if @hygiene > 7  
-	end 
-end 
-def happy?
-	if @happiness + 4 < 10
-		@happiness+=4
+	if @hygiene > 7 
+	  true 
 	else
-		 @happiness=10
-	end 
+	  false 
 end 
+end 
+
+def happy?
+	if @happiness > 7
+	  true 
+	else
+	  false 
+end
+end
+
 def take_bath
-	if @hygiene+4 < 10
-		@hygiene+=4
-	else @hygiene+=4
-	end
+		self.hygiene=(@hygiene+=4)
 	return "♪ Rub-a-dub just relaxing in the tub ♫"
 end 
 
 def work_out
-    if @happiness + 2 < 10
-	   @happiness+=2
-	else
-		 @happiness=10
-	end 
-	if @hygiene-3 < 0
-			@hygiene = 0 
-	else 
-		@hygiene-=3
-	end
-	puts @hygiene
-	puts @happiness
+     self.happiness=(@happiness+=2)
+	   self.hygiene=(@hygiene-=3)
 	return "♪ another one bites the dust ♫"
 end 
 
 def call_friend(friend)
-	self.happiness+= 3
-	@happiness+=3
-	puts "Hi #{self.name}! It's #{@name}. How are you?" 
-end 
+ self.happiness=(@happiness+=3)
+ 	friend.happiness=(friend.happiness+=3)
+	return "Hi #{friend}! It's #{@name}. How are you?" 
+
+end
 
 def get_paid(salary)
-@account+=salary
+@bank_account+=salary
 return 'all about the benjamins'
 end 
-end 
 
-sam = Person.new("sam")
-bobby = Person.new("bobby")
+end
 
-bobby.call_friend(sam)
