@@ -83,8 +83,7 @@ def start_conversation(person, topic)
     return "blah blah sun blah rain"
   else
     return "blah blah blah blah blah"
-  else
-    return ""
+  end 
 
 end
 
